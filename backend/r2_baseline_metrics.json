@@ -1,0 +1,52 @@
+{
+  "total_campaigns": 165,
+  "total_events": 308,
+  "events_assigned": 308,
+  "unassigned_events": 0,
+  "singleton_campaigns": 100,
+  "singleton_ratio": 0.6060606060606061,
+  "reopened_campaigns": 14,
+  "campaign_sizes": {
+    "min": 1,
+    "max": 10,
+    "mean": 1.8666666666666667,
+    "median": 1,
+    "distribution": {
+      "1": 100,
+      "4": 7,
+      "6": 3,
+      "3": 11,
+      "5": 5,
+      "2": 35,
+      "8": 1,
+      "10": 1,
+      "9": 1,
+      "7": 1
+    }
+  },
+  "technique_diversity": {
+    "mean": 0.7878787878787878,
+    "max": 6
+  },
+  "temporal_continuity": {
+    "mean_span_hours": 0,
+    "max_span_hours": 0
+  },
+  "host_pair_fragmentation": {
+    "192.168.56.106->192.168.56.105": 21,
+    "192.168.56.106->pes1ug23cs411-VirtualBox": 37,
+    "pes1ug23cs411-VirtualBox->pes1ug23cs411-VirtualBox": 50,
+    "192.168.56.105->pes1ug23cs411-VirtualBox": 4,
+    "3.175.86.13->172.27.8.77": 2,
+    "Omkar->Omkar": 19,
+    "172.27.8.77->185.125.190.83": 3,
+    "185.125.190.83->172.27.8.77": 2,
+    "172.27.8.77->91.189.91.82": 3,
+    "192.168.56.1->224.0.0.252": 3
+  },
+  "operations": {
+    "total": 58,
+    "mean_campaigns_per_operation": 0.0,
+    "max_campaigns_per_operation": 0
+  }
+}

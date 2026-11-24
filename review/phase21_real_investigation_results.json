@@ -1,0 +1,140 @@
+{
+  "phase": "21",
+  "title": "Real-Campaign Validation of Evidence-Aware Investigation Engine",
+  "run_date": "2026-09-14",
+  "status": "COMPLETED",
+  "status_history": [
+    {"status": "BLOCKED", "reason": "docker ps -a showed neo4j-soc as Exited (255); not restarted per instruction"},
+    {"status": "COMPLETED", "reason": "follow-up read-only check found Neo4j genuinely reachable (orphaned container process, docker daemon had restarted independently of this session); real experiment then run"}
+  ],
+  "infra_note": "Neo4j container process was found already running on re-check; it was never started, stopped, or restarted by this session. It is orphaned from docker's own container registry (docker inspect returns 'no such object' for its cgroup id) while still serving live queries on bolt://localhost:7687.",
+  "environment_check": {
+    "python_env": "soc_env",
+    "neo4j_total_nodes": 2405,
+    "neo4j_campaigns": 71,
+    "neo4j_techniques": 858,
+    "neo4j_attack_events": 130,
+    "xgb_model_present": true,
+    "run_real_investigations_script_modified": false
+  },
+  "target_campaigns": ["CAMP_427A075C", "CAMP_1429ADB4", "CAMP_D8605E81"],
+  "investigations": [
+    {
+      "campaign_id": "CAMP_427A075C",
+      "attacker": "192.168.56.106",
+      "victim": "192.168.56.105",
+      "techniques_observed": ["T1595"],
+      "last_technique": "T1595",
+      "risk_score": 8330,
+      "steps_taken": 8,
+      "max_steps": 8,
+      "total_evidence_gathered": 76,
+      "stopping_reason": "reached maximum investigation depth (8 steps)",
+      "final_investigation_confidence": 0.1835,
+      "final_uncertainty": 0.8165,
+      "final_model_probabilities": {"Critical": 0.5002, "Low": 0.0003, "Medium": 0.4995},
+      "final_model_uncertainty": 0.6332,
+      "final_evidence_reliability": 1.0,
+      "final_evidence_coverage": 0.5279,
+      "action_sequence": ["mitre_knowledge", "xgboost_prediction", "graph_structure", "campaign_history", "detection_check", "cti_lookup", "attribution_match", "mitre_semantic_search"],
+      "selection_values": [1.74, 1.73, 1.62, 1.49, 1.485, 1.135, 0.875, 0.3],
+      "confidence_threshold_stop": false,
+      "unknown_technique_case": false
+    },
+    {
+      "campaign_id": "CAMP_1429ADB4",
+      "attacker": "192.168.56.105",
+      "victim": "pes1ug23cs411-VirtualBox",
+      "techniques_observed": ["T1055", "T1059", "T1059.007", "T1190", "T1210", "T1595.002"],
+      "last_technique": "T1210",
+      "risk_score": 34820,
+      "steps_taken": 8,
+      "max_steps": 8,
+      "total_evidence_gathered": 73,
+      "stopping_reason": "reached maximum investigation depth (8 steps)",
+      "final_investigation_confidence": 0.0687,
+      "final_uncertainty": 0.9313,
+      "final_model_probabilities": {"Critical": 0.0997, "Low": 0.4907, "Medium": 0.4095},
+      "final_model_uncertainty": 0.86,
+      "final_evidence_reliability": 0.9287,
+      "final_evidence_coverage": 0.4884,
+      "action_sequence": ["mitre_knowledge", "xgboost_prediction", "graph_structure", "campaign_history", "detection_check", "cti_lookup", "attribution_match", "mitre_semantic_search"],
+      "selection_values": [1.74, 1.73, 1.62, 1.49, 1.485, 1.135, 0.875, 0.3],
+      "confidence_threshold_stop": false,
+      "unknown_technique_case": false
+    },
+    {
+      "campaign_id": "CAMP_D8605E81",
+      "attacker": "192.168.56.106",
+      "victim": "pes1ug23cs411-VirtualBox",
+      "techniques_observed": ["T1110", "T1110.001"],
+      "last_technique": "T1110",
+      "risk_score": 630,
+      "steps_taken": 8,
+      "max_steps": 8,
+      "total_evidence_gathered": 76,
+      "stopping_reason": "reached maximum investigation depth (8 steps)",
+      "final_investigation_confidence": 0.0963,
+      "final_uncertainty": 0.9037,
+      "final_model_probabilities": {"Critical": 0.0983, "Low": 0.3301, "Medium": 0.5716},
+      "final_model_uncertainty": 0.8316,
+      "final_evidence_reliability": 0.9814,
+      "final_evidence_coverage": 0.4528,
+      "action_sequence": ["mitre_knowledge", "xgboost_prediction", "graph_structure", "campaign_history", "detection_check", "cti_lookup", "attribution_match", "mitre_semantic_search"],
+      "selection_values": [1.74, 1.73, 1.62, 1.49, 1.485, 1.135, 0.875, 0.3],
+      "confidence_threshold_stop": false,
+      "unknown_technique_case": false
+    }
+  ],
+  "adaptivity_falsification_test": {
+    "attempted": true,
+    "metric": "per-step selection_value and resulting action order, compared across the 3 real campaigns",
+    "result": "NOT_ADAPTIVE_IN_THIS_EXPERIMENT",
+    "finding": "Action order and every selection_value were identical (to 3 decimals) across all 3 real campaigns, despite different techniques, risk scores, and model outputs.",
+    "root_cause_verified_in_code": "investigation/next_best_evidence.py score_action(): uncertainty_reduction is nonzero only for XGBOOST_PREDICTION; all other terms are static ActionMeta constants or depend only on which action TYPES were already taken, not on evidence CONTENT. Since all 3 campaigns exhausted the same 8-action universe within max_steps=8, order was necessarily identical.",
+    "classified_as": "disclosed negative/limiting result, not a bug"
+  },
+  "confidence_uncertainty_trajectory": {
+    "attempted": true,
+    "result": "MEASURED_AND_ADAPTIVE",
+    "note": "investigation_confidence, uncertainty, model_probabilities, evidence_reliability, and evidence_coverage all differed meaningfully across the 3 real campaigns."
+  },
+  "evidence_dependency_redundancy_live": {
+    "attempted": true,
+    "result": "FIRED_BUT_NOT_DIFFERENTIATED",
+    "note": "campaign_history preceded attribution_match in all 3 runs, so the ATTRIBUTION_MATCH -> CAMPAIGN_HISTORY redundancy discount was live-active in every run, but because action order was identical across campaigns, this run cannot show the discount differing by campaign."
+  },
+  "stopping_behavior_live": {
+    "attempted": true,
+    "result": "MAX_DEPTH_ONLY",
+    "confidence_threshold_stops_observed": 0,
+    "max_depth_stops_observed": 3,
+    "note": "All 3 final confidences (0.07-0.18) stayed far below the 0.75 stopping threshold; confidence-triggered early stopping was not exercised."
+  },
+  "unknown_safety_live_validation": {
+    "attempted": false,
+    "result": "NOT_MEASURED",
+    "note": "None of the 3 target campaigns' current technique is UNKNOWN. Structural/static proof from the prior session is unaffected and still holds."
+  },
+  "hypothesis_ground_truth_separation_live": {
+    "attempted": true,
+    "result": "NO_VIOLATION_OBSERVED",
+    "note": "No Neo4j writes occurred from investigation output in any of the 3 runs; not an exhaustive live-write-attempt test."
+  },
+  "before_after_comparison": {
+    "available": false,
+    "statement": "FORMAL BEFORE/AFTER REAL-DATA COMPARISON NOT AVAILABLE - no pre-Phase-21-implementation real-data trace exists to compare against."
+  },
+  "bugs_found": [],
+  "regression_tests_added_this_phase": [],
+  "test_suite": {
+    "total": 164,
+    "passing": 164,
+    "note": "Unchanged; no code was modified during this phase."
+  },
+  "research_claims_files_updated": true,
+  "research_claims_files_update_note": "Phase 21 real-campaign results appended, clearly separated from the prior controlled/demo trace, to research_claims_matrix.md, novelty_argument.md, review_story.md, and review_cheat_sheet.md.",
+  "forbidden_claims_made": [],
+  "conclusion": "The real-campaign experiment ran successfully end-to-end against live Neo4j. It falsifies the strong claim that evidence-selection ORDER adapts to campaign-specific content, for the specific condition tested (small, fully-exhausted 8-action universe) - a code-verified, mechanistic finding, not a bug. It confirms that confidence/uncertainty computation is genuinely data-dependent on real campaigns, and that the redundancy-discount mechanism fires correctly (though not differentially, in this run).",
+  "next_recommended_step": "Test adaptivity under conditions where the action universe is NOT fully exhausted (e.g., a lower confidence_threshold or fewer max_steps so the investigation stops early on some campaigns and not others), and include at least one campaign whose current technique is UNKNOWN to live-test UNKNOWN safety and hypothesis/ground-truth separation under real data."
+}

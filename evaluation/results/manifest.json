@@ -1,0 +1,35 @@
+{
+  "timestamp": "2026-11-23T16:03:22.583662+00:00",
+  "git_commit": "05ddc4d2847edfb30427ffbcfdf46532d28fa8ed",
+  "python_version": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+  "platform": "Windows-11-10.0.26300-SP0",
+  "package_versions": {
+    "neo4j": "6.2.0"
+  },
+  "neo4j_server_version": "5.26.27",
+  "dataset_versions": {
+    "mitre_mapping_v0": "AUTO_PROPOSED",
+    "threat_qualification_v0": "AUTO_PROPOSED",
+    "campaign_correlation_v0": "AUTO_PROPOSED",
+    "attribution_v0": "AUTO_PROPOSED"
+  },
+  "n_samples": {
+    "mitre_mapping": 100,
+    "prediction": 0,
+    "attribution": 43,
+    "campaign_correlation": 46,
+    "threat_qualification": 24,
+    "rag_mitre_semantic": 0,
+    "rag_campaign_narrative": 0,
+    "rag_gnn_topology": 0,
+    "investigation": 0
+  },
+  "duration_seconds": 9.08502459526062,
+  "failures": [],
+  "skipped": [
+    "rag_mitre_semantic: No independently-judged query set exists at evaluation/queries/rag_queries_mitre_semantic.json. Building one requires a human reviewer to judge relevant documents for a real incident context per query (see evaluation/review/export_review_queue.py for the mechanism to produce this) -- fabricating relevance judgments here would defeat the purpose of an independent evaluation, so this is honestly reported as not yet measured rather than guessed.",
+    "rag_campaign_narrative: No independently-judged query set exists at evaluation/queries/rag_queries_campaign_narrative.json. Building one requires a human reviewer to judge relevant documents for a real incident context per query (see evaluation/review/export_review_queue.py for the mechanism to produce this) -- fabricating relevance judgments here would defeat the purpose of an independent evaluation, so this is honestly reported as not yet measured rather than guessed.",
+    "rag_gnn_topology: No independently-judged query set exists at evaluation/queries/rag_queries_gnn_topology.json. Building one requires a human reviewer to judge relevant documents for a real incident context per query (see evaluation/review/export_review_queue.py for the mechanism to produce this) -- fabricating relevance judgments here would defeat the purpose of an independent evaluation, so this is honestly reported as not yet measured rather than guessed.",
+    "investigation: No independent analyst verdicts exist at evaluation/labels/investigation_verdicts.json. CYUKTI's investigation loop has been run against real campaigns (Phase 21/22, review/phase21_real_investigation_validation.md), but no human has independently judged whether the resulting top hypothesis was actually correct for any of those runs. Building this requires a reviewer to read the real evidence trail and judge it -- see evaluation/review/export_review_queue.py."
+  ]
+}

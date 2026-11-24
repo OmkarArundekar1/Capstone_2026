@@ -1,0 +1,243 @@
+{
+  "learned_transitions": [
+    {
+      "src": "T1110.001",
+      "dst": "T1110",
+      "count": 6,
+      "confidence": 1.0
+    },
+    {
+      "src": "T1110",
+      "dst": "T1078",
+      "count": 5,
+      "confidence": 1.0
+    },
+    {
+      "src": "T1078",
+      "dst": "T1110.001",
+      "count": 1,
+      "confidence": 1.0
+    }
+  ],
+  "learned_transition_count": 3,
+  "total_observations": 12,
+  "intra_campaign_transitions": [
+    {
+      "tech1": "T1110.001",
+      "tech2": "T1110",
+      "campaign_count": 15
+    },
+    {
+      "tech1": "T1110.001",
+      "tech2": "T1110.001",
+      "campaign_count": 12
+    },
+    {
+      "tech1": "T1110.001",
+      "tech2": "T1078",
+      "campaign_count": 8
+    },
+    {
+      "tech1": "T1110",
+      "tech2": "T1078",
+      "campaign_count": 7
+    },
+    {
+      "tech1": "T1078",
+      "tech2": "T1110.001",
+      "campaign_count": 6
+    },
+    {
+      "tech1": "T1110",
+      "tech2": "T1110.001",
+      "campaign_count": 3
+    },
+    {
+      "tech1": "T1078",
+      "tech2": "T1078",
+      "campaign_count": 2
+    },
+    {
+      "tech1": "T1055",
+      "tech2": "T1210",
+      "campaign_count": 2
+    },
+    {
+      "tech1": "T1055",
+      "tech2": "T1055",
+      "campaign_count": 2
+    },
+    {
+      "tech1": "T1595.002",
+      "tech2": "T1055",
+      "campaign_count": 2
+    },
+    {
+      "tech1": "T1055",
+      "tech2": "T1190",
+      "campaign_count": 2
+    },
+    {
+      "tech1": "T1595.002",
+      "tech2": "T1190",
+      "campaign_count": 2
+    },
+    {
+      "tech1": "T1078",
+      "tech2": "T1110",
+      "campaign_count": 1
+    },
+    {
+      "tech1": "T1595",
+      "tech2": "T1595",
+      "campaign_count": 1
+    },
+    {
+      "tech1": "T1055",
+      "tech2": "T1595.002",
+      "campaign_count": 1
+    },
+    {
+      "tech1": "T1210",
+      "tech2": "T1595.002",
+      "campaign_count": 1
+    },
+    {
+      "tech1": "T1210",
+      "tech2": "T1055",
+      "campaign_count": 1
+    },
+    {
+      "tech1": "T1210",
+      "tech2": "T1190",
+      "campaign_count": 1
+    },
+    {
+      "tech1": "T1110",
+      "tech2": "T1110",
+      "campaign_count": 1
+    },
+    {
+      "tech1": "T1057",
+      "tech2": "T1053.003",
+      "campaign_count": 1
+    },
+    {
+      "tech1": "T1595.002",
+      "tech2": "T1059.007",
+      "campaign_count": 1
+    },
+    {
+      "tech1": "T1055",
+      "tech2": "T1059.007",
+      "campaign_count": 1
+    },
+    {
+      "tech1": "T1595.002",
+      "tech2": "T1059",
+      "campaign_count": 1
+    },
+    {
+      "tech1": "T1055",
+      "tech2": "T1059",
+      "campaign_count": 1
+    },
+    {
+      "tech1": "T1059.007",
+      "tech2": "T1059",
+      "campaign_count": 1
+    },
+    {
+      "tech1": "T1059.007",
+      "tech2": "T1190",
+      "campaign_count": 1
+    },
+    {
+      "tech1": "T1059",
+      "tech2": "T1190",
+      "campaign_count": 1
+    },
+    {
+      "tech1": "T1190",
+      "tech2": "T1190",
+      "campaign_count": 1
+    },
+    {
+      "tech1": "T1595.002",
+      "tech2": "T1210",
+      "campaign_count": 1
+    },
+    {
+      "tech1": "T1059.007",
+      "tech2": "T1210",
+      "campaign_count": 1
+    },
+    {
+      "tech1": "T1059",
+      "tech2": "T1210",
+      "campaign_count": 1
+    },
+    {
+      "tech1": "T1190",
+      "tech2": "T1210",
+      "campaign_count": 1
+    },
+    {
+      "tech1": "T1548.003",
+      "tech2": "T1562.001",
+      "campaign_count": 1
+    }
+  ],
+  "split_host_pairs": [
+    {
+      "attacker": "pes1ug23cs411-VirtualBox",
+      "victim": "pes1ug23cs411-VirtualBox",
+      "campaigns": 100
+    },
+    {
+      "attacker": "192.168.56.106",
+      "victim": "pes1ug23cs411-VirtualBox",
+      "campaigns": 74
+    },
+    {
+      "attacker": "192.168.56.106",
+      "victim": "192.168.56.105",
+      "campaigns": 42
+    },
+    {
+      "attacker": "Omkar",
+      "victim": "Omkar",
+      "campaigns": 38
+    },
+    {
+      "attacker": "192.168.56.105",
+      "victim": "pes1ug23cs411-VirtualBox",
+      "campaigns": 8
+    },
+    {
+      "attacker": "172.27.8.77",
+      "victim": "185.125.190.83",
+      "campaigns": 6
+    },
+    {
+      "attacker": "172.27.8.77",
+      "victim": "91.189.91.82",
+      "campaigns": 6
+    },
+    {
+      "attacker": "192.168.56.1",
+      "victim": "224.0.0.252",
+      "campaigns": 6
+    },
+    {
+      "attacker": "3.175.86.13",
+      "victim": "172.27.8.77",
+      "campaigns": 4
+    },
+    {
+      "attacker": "185.125.190.83",
+      "victim": "172.27.8.77",
+      "campaigns": 4
+    }
+  ]
+}

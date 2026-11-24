@@ -1,0 +1,82 @@
+{
+  "total": 308,
+  "native": 159,
+  "reviewed": 0,
+  "curated": 42,
+  "inferred": 0,
+  "unknown": 107,
+  "ambiguous": 0,
+  "unique_rules": 47,
+  "top_unmapped_rules": [
+    [
+      [
+        "86601",
+        "Suricata: Alert - ET INFO GNU/Linux APT User-Agent Outbound likely related to package management"
+      ],
+      16
+    ],
+    [
+      [
+        "11",
+        null
+      ],
+      14
+    ],
+    [
+      [
+        "31121",
+        "Web server 501 error code (Not Implemented)."
+      ],
+      8
+    ],
+    [
+      [
+        "86601",
+        "Suricata: Alert - SURICATA Applayer Detect protocol only one direction"
+      ],
+      8
+    ],
+    [
+      [
+        "202",
+        "Agent event queue is 90% full."
+      ],
+      7
+    ],
+    [
+      [
+        "203",
+        "Agent event queue is full. Events may be lost."
+      ],
+      7
+    ],
+    [
+      [
+        "205",
+        "Agent event queue is back to normal load."
+      ],
+      7
+    ],
+    [
+      [
+        "5553",
+        "PAM misconfiguration."
+      ],
+      5
+    ],
+    [
+      [
+        "2505",
+        "syslog: Physical root login."
+      ],
+      5
+    ],
+    [
+      [
+        "86601",
+        "Suricata: Alert - SURICATA STREAM excessive retransmissions"
+      ],
+      5
+    ]
+  ]
+}

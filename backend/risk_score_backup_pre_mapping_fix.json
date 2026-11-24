@@ -1,0 +1,818 @@
+{
+  "events": [
+    {
+      "event_id": "e3ed9aee-7072-4e58-b978-82860880263b",
+      "stage": "Cron abuse",
+      "tps": 0
+    },
+    {
+      "event_id": "f90b6915-364c-41d9-a4d7-2a0eb5bc1112",
+      "stage": "Reconnaissance",
+      "tps": 500
+    },
+    {
+      "event_id": "5aed70a1-e938-408c-a86b-fabe138ccd3e",
+      "stage": "Reconnaissance",
+      "tps": 240
+    },
+    {
+      "event_id": "6276514a-e1f1-42b6-94f4-1a4b079290c1",
+      "stage": "Reconnaissance",
+      "tps": 240
+    },
+    {
+      "event_id": "709b0131-65a5-4caa-8fe0-ea05692a7626",
+      "stage": "Credential Access",
+      "tps": 45
+    },
+    {
+      "event_id": "f3f369ee-7440-4985-bceb-d88877eb09ea",
+      "stage": "Credential Access",
+      "tps": 45
+    },
+    {
+      "event_id": "45399df4-9137-489f-bbfa-0e31e5a262ad",
+      "stage": "Credential Access",
+      "tps": 45
+    },
+    {
+      "event_id": "546b06b7-373c-4e57-9388-caa954f6768f",
+      "stage": "Credential Access",
+      "tps": 45
+    },
+    {
+      "event_id": "4d5797b4-be3e-4c51-bc35-d611021fcc4c",
+      "stage": "Credential Access",
+      "tps": 45
+    },
+    {
+      "event_id": "6320209e-509a-4447-8283-24bc53f16af4",
+      "stage": "Credential Access",
+      "tps": 90
+    },
+    {
+      "event_id": "89242f5b-52d0-47d6-95d0-95f589535413",
+      "stage": "Credential Access",
+      "tps": 45
+    },
+    {
+      "event_id": "032ea615-307d-49e7-9f15-dff5f281a989",
+      "stage": "Credential Access",
+      "tps": 45
+    },
+    {
+      "event_id": "3fbf4d94-401c-44f3-9baa-7f1b641c26f7",
+      "stage": "Initial Access",
+      "tps": 70
+    },
+    {
+      "event_id": "890c78a9-330e-4987-b890-755c59f71062",
+      "stage": "Initial Access",
+      "tps": 70
+    },
+    {
+      "event_id": "3388d2ba-86c3-49f0-84f8-c54671ed2f45",
+      "stage": "Credential Access",
+      "tps": 90
+    },
+    {
+      "event_id": "c688abb1-0a10-492e-97ae-9992a05f2f03",
+      "stage": "Cron abuse",
+      "tps": 0
+    },
+    {
+      "event_id": "20a5e98d-646e-4385-b7a2-ab60caf60dfc",
+      "stage": "Cron abuse",
+      "tps": 0
+    },
+    {
+      "event_id": "68a33a34-3530-4abe-9aa3-1c9f7dc023f7",
+      "stage": "Credential Access",
+      "tps": 90
+    },
+    {
+      "event_id": "fb37ae9d-6819-4e59-b7cb-3e3be1e35dbf",
+      "stage": "Unknown",
+      "tps": 0
+    },
+    {
+      "event_id": "d95f04e5-2294-40d7-937c-b7c1f2f1dfcc",
+      "stage": "Unknown",
+      "tps": 0
+    },
+    {
+      "event_id": "26e0ec0d-d98c-4cbf-b68c-6c86c8357af1",
+      "stage": "Initial Access",
+      "tps": 140
+    },
+    {
+      "event_id": "4beccbda-0eec-4f13-a8d5-b537558fec6b",
+      "stage": "Reconnaissance",
+      "tps": 500
+    },
+    {
+      "event_id": "7619f2e1-ea39-46d0-a757-17bb5030455d",
+      "stage": "Reconnaissance",
+      "tps": 250
+    },
+    {
+      "event_id": "da17bf0f-8147-4dfb-a93d-57543b50e55d",
+      "stage": "Credential Access",
+      "tps": 45
+    },
+    {
+      "event_id": "dfbab57d-373f-46f3-8c53-07117abc1c4c",
+      "stage": "Credential Access",
+      "tps": 45
+    },
+    {
+      "event_id": "7d2ba1c1-1640-400e-ac64-a80f565cc0b2",
+      "stage": "Reconnaissance",
+      "tps": 480
+    },
+    {
+      "event_id": "bdab2e70-a930-41b5-baab-59bd551928d1",
+      "stage": "Credential Access",
+      "tps": 45
+    },
+    {
+      "event_id": "460c2fe8-09e2-48fc-9f04-59db1ac8cee4",
+      "stage": "Credential Access",
+      "tps": 45
+    },
+    {
+      "event_id": "05137d25-2187-4fcd-8a09-321ca2607ef8",
+      "stage": "Initial Access",
+      "tps": 70
+    },
+    {
+      "event_id": "e1ef8651-997c-473e-a8a1-e55ccc1b28d2",
+      "stage": "Credential Access",
+      "tps": 90
+    },
+    {
+      "event_id": "12d01aec-a952-4364-af7b-9fbb0069bbf3",
+      "stage": "Reconnaissance",
+      "tps": 250
+    },
+    {
+      "event_id": "00cead16-670a-4f5a-bd71-f05314485fd1",
+      "stage": "Credential Access",
+      "tps": 45
+    },
+    {
+      "event_id": "46d975af-9eb9-4dde-b3fe-dd685a6a0200",
+      "stage": "Credential Access",
+      "tps": 45
+    },
+    {
+      "event_id": "a846ff9c-2c43-4c51-a365-c0cc4f7bdb25",
+      "stage": "Credential Access",
+      "tps": 90
+    },
+    {
+      "event_id": "56204f41-d4ae-4da0-970f-3de347939109",
+      "stage": "Credential Access",
+      "tps": 45
+    },
+    {
+      "event_id": "a12df97b-4cea-4628-a629-63a33e04b27f",
+      "stage": "Credential Access",
+      "tps": 45
+    },
+    {
+      "event_id": "5c3fb29c-ff37-4be8-84c6-37fe72cfaba5",
+      "stage": "Initial Access",
+      "tps": 70
+    },
+    {
+      "event_id": "f8fe307c-c5c8-44a0-b171-ab4313a655ed",
+      "stage": "Credential Access",
+      "tps": 90
+    },
+    {
+      "event_id": "ba7d879c-9cb9-44c9-8245-8efd25241a2f",
+      "stage": "Unknown",
+      "tps": 0
+    },
+    {
+      "event_id": "37e2e169-0e08-4c49-9e1c-597973582e38",
+      "stage": "Unknown",
+      "tps": 0
+    },
+    {
+      "event_id": "ab56634a-2b73-49df-a42d-351f21fc6fcc",
+      "stage": "Credential Access",
+      "tps": 90
+    },
+    {
+      "event_id": "2383dcc1-c84f-481d-ac09-31ef029c5c7b",
+      "stage": "Reconnaissance",
+      "tps": 250
+    },
+    {
+      "event_id": "882c892b-086c-427e-a0dd-dedfeba1f1af",
+      "stage": "Credential Access",
+      "tps": 45
+    },
+    {
+      "event_id": "8f225f06-14b5-4b5b-b1c7-5eb3580e4ba9",
+      "stage": "Credential Access",
+      "tps": 45
+    },
+    {
+      "event_id": "012c1efc-6b93-4ac2-b470-4a6f8d89c6bb",
+      "stage": "Credential Access",
+      "tps": 90
+    },
+    {
+      "event_id": "4135b4ff-e40e-48b1-80a7-6ddc619da976",
+      "stage": "Credential Access",
+      "tps": 45
+    },
+    {
+      "event_id": "d598ccac-5467-40fd-a6a3-692c9108e49d",
+      "stage": "Initial Access",
+      "tps": 70
+    },
+    {
+      "event_id": "d1a92946-1510-4267-8062-7d89cbc2d71b",
+      "stage": "Credential Access",
+      "tps": 90
+    },
+    {
+      "event_id": "f878c04e-8cfe-48e4-ab73-eff265a79b9d",
+      "stage": "Credential Access",
+      "tps": 90
+    },
+    {
+      "event_id": "1d37dbcf-d7d8-405b-b146-8f62791b8d1c",
+      "stage": "Initial Access",
+      "tps": 140
+    },
+    {
+      "event_id": "26efaf44-d357-472f-b1a3-b4e2f556586e",
+      "stage": "Initial Access",
+      "tps": 70
+    },
+    {
+      "event_id": "57a082cd-838c-42f3-ae96-284424dc0de0",
+      "stage": "Cron abuse",
+      "tps": 0
+    },
+    {
+      "event_id": "9a956078-175c-44b8-8081-b394d003effd",
+      "stage": "Cron abuse",
+      "tps": 0
+    },
+    {
+      "event_id": "02488851-0f88-472c-87b2-3d8f264bf980",
+      "stage": "Reconnaissance",
+      "tps": 250
+    },
+    {
+      "event_id": "5abc7eb7-2132-46f2-9179-d3dd14e7e760",
+      "stage": "Credential Access",
+      "tps": 45
+    },
+    {
+      "event_id": "6c209b3c-0f64-4377-9472-4bb7a1f1e4b8",
+      "stage": "Credential Access",
+      "tps": 45
+    },
+    {
+      "event_id": "77a4d520-fd6a-4d1e-9500-0d74a52646fd",
+      "stage": "Credential Access",
+      "tps": 45
+    },
+    {
+      "event_id": "67a7f625-3c4f-419f-a9f2-c27c6c8e6f47",
+      "stage": "Credential Access",
+      "tps": 45
+    },
+    {
+      "event_id": "ed45dfaa-8871-45ef-bf84-e929e8abdeff",
+      "stage": "Initial Access",
+      "tps": 70
+    },
+    {
+      "event_id": "11c8a95e-ac05-45d1-8408-f28db9ac85d9",
+      "stage": "Reconnaissance",
+      "tps": 460
+    },
+    {
+      "event_id": "e8454032-3cc7-4ff1-acdc-8e5b9b25134e",
+      "stage": "Credential Access",
+      "tps": 90
+    },
+    {
+      "event_id": "bfd5016d-9f87-4a68-9e5f-3ae87f2e3223",
+      "stage": "Credential Access",
+      "tps": 180
+    },
+    {
+      "event_id": "d68992c9-439c-4341-b27a-270d3b98a3bd",
+      "stage": "Reconnaissance",
+      "tps": 500
+    },
+    {
+      "event_id": "eacea4be-d7cd-4ca1-9bdf-f3df60b95ccb",
+      "stage": "Credential Access",
+      "tps": 90
+    },
+    {
+      "event_id": "911a97f5-2653-4e1e-a857-4e86dfd78c13",
+      "stage": "Credential Access",
+      "tps": 90
+    },
+    {
+      "event_id": "ecb8b729-b856-40a3-be1e-2636517c56b2",
+      "stage": "Credential Access",
+      "tps": 90
+    },
+    {
+      "event_id": "4f15a708-a22b-47cd-b03b-c4d9f32631f7",
+      "stage": "Credential Access",
+      "tps": 90
+    },
+    {
+      "event_id": "ebe73281-1f7c-49de-8387-84561bdf6fe3",
+      "stage": "Initial Access",
+      "tps": 140
+    },
+    {
+      "event_id": "86c4acde-b232-4a74-8c00-250225df71d9",
+      "stage": "Cron abuse",
+      "tps": 0
+    },
+    {
+      "event_id": "e4dab269-2d22-4cea-bf6d-e72cd0f18908",
+      "stage": "Credential Access",
+      "tps": 90
+    },
+    {
+      "event_id": "c1d9542c-2dbc-4e01-bbad-aa0af0263c90",
+      "stage": "Credential Access",
+      "tps": 90
+    },
+    {
+      "event_id": "f8cd5551-5a61-4fcf-be92-11f313ef5b54",
+      "stage": "Credential Access",
+      "tps": 90
+    },
+    {
+      "event_id": "7cecdf2f-23e3-44b5-a17a-cf3b9374ca42",
+      "stage": "Credential Access",
+      "tps": 90
+    },
+    {
+      "event_id": "24f5fbd8-6860-43be-9c69-0f80449fb851",
+      "stage": "Initial Access",
+      "tps": 140
+    },
+    {
+      "event_id": "55e15243-1ac9-4468-960f-cd2f21872e49",
+      "stage": "Unknown",
+      "tps": 0
+    },
+    {
+      "event_id": "12a69591-627d-40e5-b168-7c10b09c521d",
+      "stage": "Initial Access",
+      "tps": 140
+    },
+    {
+      "event_id": "dcabd3e7-39bd-4191-9ac9-a9f2c1a07c25",
+      "stage": "Credential Access",
+      "tps": 90
+    },
+    {
+      "event_id": "db41faf0-96eb-4d2d-bfcf-7c1afaf9e70e",
+      "stage": "Credential Access",
+      "tps": 90
+    },
+    {
+      "event_id": "226847e8-0259-441a-8cca-112e94870832",
+      "stage": "Credential Access",
+      "tps": 90
+    },
+    {
+      "event_id": "bf895eb8-036f-4873-81d6-1280f41fd7dd",
+      "stage": "Credential Access",
+      "tps": 90
+    },
+    {
+      "event_id": "18ef7a4a-5241-4b76-ac90-f14827235fbb",
+      "stage": "Initial Access",
+      "tps": 140
+    },
+    {
+      "event_id": "1cb71c5f-f69f-402c-b74e-26087c47fc00",
+      "stage": "Credential Access",
+      "tps": 90
+    },
+    {
+      "event_id": "3f36e21a-55de-4f31-867b-ebb9d85bcc7b",
+      "stage": "Reconnaissance",
+      "tps": 260
+    },
+    {
+      "event_id": "e95326e5-324b-4c3c-ab9f-2b650e7ab384",
+      "stage": "Unknown",
+      "tps": 0
+    },
+    {
+      "event_id": "90baf3a9-f009-469b-b3e0-5240da763014",
+      "stage": "Reconnaissance",
+      "tps": 8070
+    },
+    {
+      "event_id": "f089201d-b73d-4311-a5ae-9caee12fb7fd",
+      "stage": "Unknown",
+      "tps": 0
+    },
+    {
+      "event_id": "a69b34be-7e05-4672-8431-ff343f1936e3",
+      "stage": "Unknown",
+      "tps": 0
+    },
+    {
+      "event_id": "99844bcd-8419-4871-9796-51984d2fc3ba",
+      "stage": "Unknown",
+      "tps": 0
+    },
+    {
+      "event_id": "6bf8d49d-1240-43dd-8f09-73592c875cc9",
+      "stage": "Unknown",
+      "tps": 0
+    },
+    {
+      "event_id": "df038b22-80ab-43c1-a515-38c78bcda584",
+      "stage": "Unknown",
+      "tps": 0
+    },
+    {
+      "event_id": "f3d4dcb1-2108-4d4a-beb3-e2ee015e4361",
+      "stage": "Credential Access",
+      "tps": 2655
+    },
+    {
+      "event_id": "8db49bdf-3e37-4f6b-9d9e-c0d5525bc6a4",
+      "stage": "Credential Access",
+      "tps": 585
+    },
+    {
+      "event_id": "acd95e97-3cb3-4b33-8a8b-02c0f755d830",
+      "stage": "Credential Access",
+      "tps": 45
+    },
+    {
+      "event_id": "9c8479e8-4c08-4240-9ab9-0bbb550e20f5",
+      "stage": "Credential Access",
+      "tps": 45
+    },
+    {
+      "event_id": "230fa490-76f4-4775-b392-b6607bf6875c",
+      "stage": "Credential Access",
+      "tps": 360
+    },
+    {
+      "event_id": "c6f0ba43-4112-4c95-8554-fe81121e4ae9",
+      "stage": "Credential Access",
+      "tps": 45
+    },
+    {
+      "event_id": "2141163e-d366-44fc-ac2e-4c5557ac8776",
+      "stage": "Credential Access",
+      "tps": 45
+    },
+    {
+      "event_id": "b68ae9f6-48e8-4c95-bc32-e7f3069ce5c3",
+      "stage": "Initial Access",
+      "tps": 70
+    },
+    {
+      "event_id": "6fca88cb-f9c7-4458-a6b7-8bf40aa0ac93",
+      "stage": "Unknown",
+      "tps": 0
+    },
+    {
+      "event_id": "f80d959f-c5d8-4b3b-9c98-483ec7e8b14d",
+      "stage": "Cron abuse",
+      "tps": 0
+    },
+    {
+      "event_id": "c7067513-11fe-4f64-b071-3e6bc004e82d",
+      "stage": "Unknown",
+      "tps": 0
+    },
+    {
+      "event_id": "2d297e15-bfc1-4417-ae5c-b21cbb0d1817",
+      "stage": "Unknown",
+      "tps": 0
+    },
+    {
+      "event_id": "afaa0619-75d4-49fc-b003-91a270d0e50b",
+      "stage": "Unknown",
+      "tps": 0
+    },
+    {
+      "event_id": "40e75af3-b8f0-433d-a69c-3e2ef69f0f4c",
+      "stage": "Unknown",
+      "tps": 0
+    },
+    {
+      "event_id": "7905b101-9867-4537-aa01-e111a54a0362",
+      "stage": "Unknown",
+      "tps": 0
+    },
+    {
+      "event_id": "82d20e8c-1768-4942-9eb2-1906d083e6fd",
+      "stage": "Unknown",
+      "tps": 0
+    },
+    {
+      "event_id": "1b6c9195-67f7-4be2-9052-c649e2a72b82",
+      "stage": "Unknown",
+      "tps": 0
+    },
+    {
+      "event_id": "7280ba04-ea0b-412b-8369-5ad67b88a6a7",
+      "stage": "Unknown",
+      "tps": 0
+    },
+    {
+      "event_id": "8d6f1ca6-aa46-4dd4-b064-678327cb6c04",
+      "stage": "Unknown",
+      "tps": 0
+    },
+    {
+      "event_id": "c49f8d75-6011-41c4-8c4a-bbacd2b8e157",
+      "stage": "Unknown",
+      "tps": 0
+    },
+    {
+      "event_id": "4d921756-9d08-444d-b811-a4fb6aa857ad",
+      "stage": "Unknown",
+      "tps": 0
+    },
+    {
+      "event_id": "f4e60786-ff8f-4730-b951-c0aadf478eda",
+      "stage": "Lateral Movement",
+      "tps": 220
+    },
+    {
+      "event_id": "2cb77170-5806-4517-a116-516f6a972d8d",
+      "stage": "Credential Access",
+      "tps": 45
+    },
+    {
+      "event_id": "7f974eb2-3e16-4109-9bd6-79c2d1484d28",
+      "stage": "Initial Access",
+      "tps": 70
+    },
+    {
+      "event_id": "d7efdc90-8020-45f1-a75e-3e6e25b542cb",
+      "stage": "Reconnaissance",
+      "tps": 250
+    },
+    {
+      "event_id": "b838a89c-46b3-464a-8f18-a50c6245dafc",
+      "stage": "Credential Access",
+      "tps": 45
+    },
+    {
+      "event_id": "69c43687-ec60-4c60-943e-8c14025e1261",
+      "stage": "Credential Access",
+      "tps": 45
+    }
+  ],
+  "campaigns": [
+    {
+      "campaign_id": "CAMP_7331E223",
+      "risk_score": 500.0,
+      "total_tps": 500
+    },
+    {
+      "campaign_id": "CAMP_5DD3F083",
+      "risk_score": 180.0,
+      "total_tps": 180
+    },
+    {
+      "campaign_id": "CAMP_A93237FD",
+      "risk_score": 90.0,
+      "total_tps": 90
+    },
+    {
+      "campaign_id": "CAMP_B12C16D4",
+      "risk_score": 230.0,
+      "total_tps": 230
+    },
+    {
+      "campaign_id": "CAMP_9669CA33",
+      "risk_score": 500.0,
+      "total_tps": 500
+    },
+    {
+      "campaign_id": "CAMP_B39F5C0A",
+      "risk_score": 480.0,
+      "total_tps": 480
+    },
+    {
+      "campaign_id": "CAMP_1627943B",
+      "risk_score": 590.0,
+      "total_tps": 590
+    },
+    {
+      "campaign_id": "CAMP_4CF07810",
+      "risk_score": 90.0,
+      "total_tps": 90
+    },
+    {
+      "campaign_id": "CAMP_BB9A0F28",
+      "risk_score": 180.0,
+      "total_tps": 180
+    },
+    {
+      "campaign_id": "CAMP_492C222D",
+      "risk_score": 0.0,
+      "total_tps": 0
+    },
+    {
+      "campaign_id": "CAMP_947A7084",
+      "risk_score": 460.0,
+      "total_tps": 460
+    },
+    {
+      "campaign_id": "CAMP_67FCB361",
+      "risk_score": 500.0,
+      "total_tps": 500
+    },
+    {
+      "campaign_id": "CAMP_0E9C0284",
+      "risk_score": 590.0,
+      "total_tps": 590
+    },
+    {
+      "campaign_id": "CAMP_FF9C01C7",
+      "risk_score": 90.0,
+      "total_tps": 90
+    },
+    {
+      "campaign_id": "CAMP_3183ADF4",
+      "risk_score": 0.0,
+      "total_tps": 0
+    },
+    {
+      "campaign_id": "CAMP_C6E494CF",
+      "risk_score": 180.0,
+      "total_tps": 180
+    },
+    {
+      "campaign_id": "CAMP_75FBEEBC",
+      "risk_score": 3275.0,
+      "total_tps": 3275
+    },
+    {
+      "campaign_id": "CAMP_2EDE8EF9",
+      "risk_score": 0.0,
+      "total_tps": 0
+    },
+    {
+      "campaign_id": "CAMP_DDBFC6D9",
+      "risk_score": 230.0,
+      "total_tps": 230
+    },
+    {
+      "campaign_id": "CAMP_0779D267",
+      "risk_score": 90.0,
+      "total_tps": 90
+    },
+    {
+      "campaign_id": "CAMP_93C14BDB",
+      "risk_score": 450.0,
+      "total_tps": 450
+    },
+    {
+      "campaign_id": "CAMP_427A075C",
+      "risk_score": 8330.0,
+      "total_tps": 8330
+    },
+    {
+      "campaign_id": "CAMP_10407C1A",
+      "risk_score": 0.0,
+      "total_tps": 0
+    },
+    {
+      "campaign_id": "CAMP_D8605E81",
+      "risk_score": 630.0,
+      "total_tps": 630
+    },
+    {
+      "campaign_id": "CAMP_DAE35509",
+      "risk_score": 90.0,
+      "total_tps": 90
+    },
+    {
+      "campaign_id": "CAMP_3B0C15FC",
+      "risk_score": 0.0,
+      "total_tps": 0
+    },
+    {
+      "campaign_id": "CAMP_23FB320A",
+      "risk_score": 0.0,
+      "total_tps": 0
+    },
+    {
+      "campaign_id": "CAMP_1429ADB4",
+      "risk_score": 0.0,
+      "total_tps": 0
+    },
+    {
+      "campaign_id": "CAMP_D69A76DF",
+      "risk_score": 220.0,
+      "total_tps": 220
+    },
+    {
+      "campaign_id": "CAMP_F91A7652",
+      "risk_score": 45.0,
+      "total_tps": 45
+    },
+    {
+      "campaign_id": "CAMP_066240B7",
+      "risk_score": 70.0,
+      "total_tps": 70
+    },
+    {
+      "campaign_id": "CAMP_99EE7A64",
+      "risk_score": 250.0,
+      "total_tps": 250
+    },
+    {
+      "campaign_id": "CAMP_E449E81D",
+      "risk_score": 45.0,
+      "total_tps": 45
+    }
+  ],
+  "techniques": [
+    {
+      "attack_id": "T1114",
+      "total_tps": 0
+    },
+    {
+      "attack_id": "T1053.003",
+      "total_tps": 0
+    },
+    {
+      "attack_id": "T1021.004",
+      "total_tps": 220
+    },
+    {
+      "attack_id": "T1190",
+      "total_tps": 0
+    },
+    {
+      "attack_id": "T1055",
+      "total_tps": 0
+    },
+    {
+      "attack_id": "T1595.002",
+      "total_tps": 0
+    },
+    {
+      "attack_id": "T1595",
+      "total_tps": 13740
+    },
+    {
+      "attack_id": "T1059",
+      "total_tps": 0
+    },
+    {
+      "attack_id": "T1057",
+      "total_tps": 0
+    },
+    {
+      "attack_id": "T1210",
+      "total_tps": 0
+    },
+    {
+      "attack_id": "T1110",
+      "total_tps": 1080
+    },
+    {
+      "attack_id": "T1562.001",
+      "total_tps": 0
+    },
+    {
+      "attack_id": "T1078",
+      "total_tps": 1820
+    },
+    {
+      "attack_id": "T1110.001",
+      "total_tps": 6885
+    },
+    {
+      "attack_id": "T1059.007",
+      "total_tps": 0
+    }
+  ]
+}

@@ -1,0 +1,93 @@
+Module,Metric,Value,Dataset_N,Evaluation_Method,Evidence_Source,Status,Reviewer_Interpretation
+Wazuh ingestion/listener,Total tests,150,,pytest,"pytest -q, fresh run 2026-09-12",C,Full regression suite
+Wazuh ingestion/listener,Passing/Failing,150/0,150,pytest,same,C,0 failures
+Wazuh ingestion/listener,Compile check,clean,,compileall,fresh run 2026-09-12,D,No syntax errors
+Wazuh ingestion/listener,Listener uptime this session,~13 min,,process inspection,"docker ps/pgrep, 2026-09-12",B,Recovered after infra outage
+Wazuh ingestion/listener,Offset-recovery behavior,fired correctly,1 restart event,live observation,listener log,B,Confirms documented safety behavior
+MITRE resolution,Alerts evaluated (representative),391,,coverage script,mitre_coverage_report.py 2026-08-31,B,Representative live sample
+MITRE resolution,NATIVE_WAZUH,39 (10.0%),391,coverage script,same,B,Native rule.mitre present
+MITRE resolution,REVIEWED_RULE_MAPPING,0 (0%),391,coverage script,same,B,Registry empty by design
+MITRE resolution,DETERMINISTIC_INFERENCE,0 (0%),391,coverage script,same,B,Zero live rules by design
+MITRE resolution,AMBIGUOUS,0 (0%),391,coverage script,same,B,
+MITRE resolution,UNKNOWN,352 (90.0%),391,coverage script,same,B,Expected/correct outcome
+MITRE resolution,Older snapshot (superseded),"239 alerts, 3 native (1.3%), 236 UNKNOWN (98.7%)",239,coverage script,historical Phase 20,B,Superseded by 391-alert snapshot
+MITRE resolution,Current-moment file snapshot,"13 alerts, 0 native, 13 UNKNOWN (100%)",13,coverage script,mitre_coverage_report.py 2026-09-12,B,Not representative - reboot noise only
+MITRE resolution,Resolver unit tests,15/15 pass,,pytest,test_mitre_resolver.py,C,
+MITRE resolution,Realtime integration tests,8/8 pass,,pytest,test_realtime_mitre_integration.py,C,
+UNKNOWN handling,Real UNKNOWN events ingested,5,5,live Neo4j inspection,Phase 20F + re-verified 2026-09-12,B,Still present after Neo4j outage/recovery
+UNKNOWN handling,Fabricated attack_id count,0,5,live Neo4j inspection,same,B,0%
+UNKNOWN handling,attack_id property absent,5,5,live Neo4j inspection,same,B,100%
+UNKNOWN handling,Technique/MATCHES relationships,0,5,live Neo4j inspection,same,B,0%
+UNKNOWN handling,NEXT_TECHNIQUE edges before/after,3/3,,live Neo4j inspection,same,B,Unchanged
+UNKNOWN handling,TPS contribution,0,5,live Neo4j inspection,same,B,Hardcoded 0
+UNKNOWN handling,Raw payload preserved,5/5,5,live Neo4j inspection,same,B,
+UNKNOWN handling,predict_next() reachable from UNKNOWN,never,,code control-flow proof,realtime_socgraph.py,D,Structural guarantee
+UNKNOWN handling,MISP publish reachable from UNKNOWN,never,,code control-flow proof,same,D,Structural guarantee
+Neo4j graph integrity,Campaign nodes,65,,live query,2026-09-12,B,Matches Phase 20F exactly
+Neo4j graph integrity,AttackEvent nodes,124,,live query,same,B,Matches Phase 20F exactly
+Neo4j graph integrity,Technique nodes,858,,live query,same,B,Real STIX-imported
+Neo4j graph integrity,Attacker nodes,5,,live query,same,B,
+Neo4j graph integrity,Host nodes,4,,live query,same,B,
+Neo4j graph integrity,Operation nodes,43,,live query,same,B,Existence only, quality not evaluated
+Neo4j graph integrity,MATCHES relationships,119,,live query,same,B,124 events minus 5 UNKNOWN
+Neo4j graph integrity,Orphaned AttackEvents,0,124,live query,same,B,0% orphan rate
+Neo4j graph integrity,NEXT_TECHNIQUE relationships,3,,live query,same,B,Data-limited
+Campaign reconstruction,Orphaned events repaired,44 -> 27 campaigns,44,one-time real-data repair,campaign_reconstruction.py,A,One-time offline repair
+Campaign reconstruction,Current orphan count,0,124,live query,2026-09-12,B,Repair holds
+Campaign reconstruction,Idempotency tests,10/10 pass,,pytest,test_campaign_reconstruction.py,C,
+Risk scoring,Normalization/threshold tests,6/6 pass,,pytest,test_risk_scoring.py,C,Mechanism only
+Risk scoring,Recalculation idempotency tests,4/4 pass,,pytest,test_risk_recalculation.py,C,
+Risk scoring,Predictive/discriminative value,NOT MEASURED,,,,E,
+MITRE/STIX ingestion,Imported Technique nodes,858,,live query,2026-09-12,B,
+MITRE/STIX ingestion,STIX corpus version,Enterprise v19.1,,file metadata,mitredata/attack-stix-data,D,25843 total STIX objects
+NEXT_TECHNIQUE,Evaluable predictions,12,12,offline experiment,Phase 18 dataset rebuild,A,
+NEXT_TECHNIQUE,Correct,4,12,offline experiment,same,A,33.3%
+NEXT_TECHNIQUE,Incorrect,8,12,offline experiment,same,A,
+NEXT_TECHNIQUE,Accuracy,33.3%,12,offline experiment,same,A,INSUFFICIENT FOR SUPERVISED ML
+NEXT_TECHNIQUE,Learned edges in graph,3,,live query,2026-09-12,B,
+Prediction engine,predict_next_readonly unit tests,4/4 pass,,pytest,test_next_technique_pipeline.py,C,
+Prediction engine,Live prediction accuracy,NOT MEASURED,,,,E,Beyond NEXT_TECHNIQUE row above
+Threat attribution,Accuracy/precision/recall/F1/AUC,NOT MEASURED,,,,E,No ground-truth attacker-identity dataset
+Threat attribution,Evidence-collector unit tests,2/2 pass,,pytest,test_evidence.py,C,Collector mechanics only
+Evidence collection,Collector types,6,,code inventory,evidence/collectors/*.py,D,mitre graph detection cti campaign_history attribution
+Evidence collection,Unit tests,13/13 pass,,pytest,test_evidence.py,C,
+Evidence-aware investigation,Unit/integration tests,25/25 pass,,pytest,test_investigation.py,C,
+Evidence-aware investigation,Evidence orchestrator integration test,1/1 pass,,pytest,test_evidence_orchestrator.py,C,
+Evidence-aware investigation,Real XGBoost probabilities (3 campaigns),reported in prior history,3 campaigns,prior-session record,not independently re-verified,E,Cite as previously recorded only
+Evidence-aware investigation,Investigation-confidence precision/recall,NOT MEASURED,,,,E,
+RAG,Indexed real ATT&CK documents,>500,,pytest,test_rag.py,C,Real corpus not synthetic
+RAG,Corpus version,Enterprise v19.1,,file metadata,,D,
+RAG,Full RAG test suite,7/7 pass,,pytest,test_rag.py,C,
+RAG,Retrieval precision/recall,NOT MEASURED,,,,E,No labeled query set
+RAG,Embedding/index dimensions,NOT AVAILABLE,,,,E,TF-IDF - no fixed dimension documented
+MISP integration,Client initialization,succeeds,,live observation,listener startup log 2026-09-12,B,No network call at construction
+MISP integration,Events published/synchronized/IOC counts,NOT MEASURED,,,,E,MISP containers absent
+MISP integration,Requirement for listener startup,not required,,code inspection,cti_publisher.py,D,
+MISP integration,Requirement for UNKNOWN ingestion,not required,,code control-flow proof,realtime_socgraph.py,D,
+XGBoost,n,60,60,offline evaluation,evaluate_model.py 2026-08-31,A,Same rows model trained on
+XGBoost,Accuracy,0.917,60,offline evaluation,same,A,IN-SAMPLE ONLY - NOT A GENERALIZATION CLAIM
+XGBoost,Macro F1,0.676,60,offline evaluation,same,A,In-sample
+XGBoost,Weighted F1,0.910,60,offline evaluation,same,A,In-sample
+XGBoost,Critical precision/recall/F1,1.00/0.25/0.40,4,offline evaluation,same,A,3 of 4 Critical misclassified in-sample
+XGBoost,Low precision/recall/F1,0.962/0.962/0.962,53,offline evaluation,same,A,
+XGBoost,Medium precision/recall/F1,0.50/1.00/0.667,3,offline evaluation,same,A,
+XGBoost,Confusion matrix,"[[1,2,1],[0,51,2],[0,0,3]]",60,offline evaluation,same,A,Order: Critical Low Medium
+XGBoost,Mean model confidence,0.7639,60,offline evaluation,same,A,
+XGBoost,Held-out/test-set accuracy,NOT AVAILABLE,,,,E,No train/test split exists
+XGBoost,ROC-AUC/PR-AUC/cross-validation,NOT MEASURED,,,,E,
+SSL,Autoencoder convergence,confirmed,,pytest,test_ssl_pipeline.py,C,Pass/fail only
+SSL,Training artifact,"real, 455715 bytes",,file inspection,ml/models/autoencoder_best.pth,D,
+SSL,Anomaly-detection accuracy/AUC on real traffic,NOT MEASURED,,,,E,
+GNN,Unit tests,11/11 pass,,pytest,test_gnn.py,C,Synthetic graphs only
+GNN,Performance on real campaigns,NOT MEASURED,,,,E,No real-campaign benchmark
+Dataset generation,Campaigns,60,,file inspection,campaign_dataset.csv 2026-09-12,B,Frozen since Phase 18
+Dataset generation,Columns,66,,file inspection,same,B,57 features + ids/labels
+Dataset generation,Attackers/Victims/Pairs,3/2/4,60,offline analysis,Phase 17 report,A,Severely limited diversity
+Dataset generation,Severity distribution,"Low=53 Medium=3 Critical=4 High=0",60,file inspection,same,B,No High-severity examples
+Dataset generation,Exact duplicate feature-vector rows,11 (3 groups),60,offline analysis,Phase 17 report,A,
+Dataset generation,Zero-variance features,23,57,offline analysis,same,A,40% of declared features
+Dataset generation,Dataset validity verdict,NOT_READY_FOR_CALIBRATION,,offline analysis,phase17_dataset_validity_gate.py,A,Formal self-issued verdict
+Dashboard/API,Endpoint tests,10/10 pass,,pytest,test_dashboard_api*.py,C,
+Dashboard/API,Load/latency testing,NOT MEASURED,,,,E,
+Phase 20 overall,Total regression suite,150/150 pass,,pytest,fresh run 2026-09-12,C,
+Phase 20 overall,Compile check,clean,,compileall,fresh run 2026-09-12,D,

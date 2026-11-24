@@ -1,0 +1,63 @@
+{
+  "task": "prediction_accuracy",
+  "status": "NOT_MEASURED",
+  "n": 0,
+  "metrics": {
+    "live_next_technique_edge_count": 8,
+    "live_edges": [
+      {
+        "src": "T1110.001",
+        "dst": "T1110",
+        "count": 11,
+        "confidence": 1.0
+      },
+      {
+        "src": "T1110",
+        "dst": "T1078",
+        "count": 6,
+        "confidence": 0.75
+      },
+      {
+        "src": "T1078",
+        "dst": "T1110.001",
+        "count": 1,
+        "confidence": 1.0
+      },
+      {
+        "src": "T1562.001",
+        "dst": "T1565",
+        "count": 5,
+        "confidence": 1.0
+      },
+      {
+        "src": "T1565",
+        "dst": "T1562.001",
+        "count": 2,
+        "confidence": 1.0
+      },
+      {
+        "src": "T1110",
+        "dst": "T1110.001",
+        "count": 2,
+        "confidence": 0.25
+      },
+      {
+        "src": "T1548",
+        "dst": "T1562.001",
+        "count": 2,
+        "confidence": 1.0
+      },
+      {
+        "src": "T1071.001",
+        "dst": "T1110.001",
+        "count": 2,
+        "confidence": 1.0
+      }
+    ]
+  },
+  "ground_truth_review_status": "",
+  "dataset_name": "NEXT_TECHNIQUE (live Neo4j graph)",
+  "method": "",
+  "limitations": [],
+  "reason": "The live NEXT_TECHNIQUE graph has grown to 8 edges (more than Phase 18's 3) -- new held-out prediction opportunities may now exist, but this evaluator has not yet been run in retrospective-scoring mode against them (that requires rebuilding the real transition dataset the way scripts/phase18_next_technique_diagnosis.py did, which was out of scope to re-run this pass)."
+}

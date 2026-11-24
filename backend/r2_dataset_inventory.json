@@ -1,0 +1,156 @@
+{
+  "dataset_id": "neo4j_308_events",
+  "collection_timestamp": "2026-11-15T19:10:38.080021",
+  "events": {
+    "total": 308,
+    "unique_rules": 47,
+    "unique_techniques": 17,
+    "unknown_techniques": 149,
+    "unique_host_pairs": 31,
+    "unique_attackers": 15,
+    "unique_victims": 17,
+    "top_rules": [
+      [
+        "86601",
+        37
+      ],
+      [
+        "5760",
+        31
+      ],
+      [
+        "5503",
+        27
+      ],
+      [
+        "100500",
+        22
+      ],
+      [
+        "5715",
+        16
+      ],
+      [
+        "11",
+        14
+      ],
+      [
+        "2502",
+        13
+      ],
+      [
+        "531",
+        13
+      ],
+      [
+        "506",
+        9
+      ],
+      [
+        "503",
+        9
+      ]
+    ],
+    "top_techniques": [
+      [
+        "T1110.001",
+        60
+      ],
+      [
+        "T1595",
+        22
+      ],
+      [
+        "T1110",
+        20
+      ],
+      [
+        "T1078",
+        16
+      ],
+      [
+        "T1562.001",
+        12
+      ],
+      [
+        "T1053.003",
+        7
+      ],
+      [
+        "T1055",
+        6
+      ],
+      [
+        "T1190",
+        4
+      ],
+      [
+        "T1210",
+        2
+      ],
+      [
+        "T1595.002",
+        2
+      ]
+    ]
+  },
+  "campaigns": {
+    "total": 165,
+    "by_status": {
+      "INACTIVE": 163,
+      "ACTIVE": 2
+    },
+    "unique_host_pairs": 31,
+    "singleton_count": 100,
+    "size_distribution": {
+      "min": 1,
+      "max": 10,
+      "mean": 1.8666666666666667,
+      "median": 1,
+      "sizes": [
+        10,
+        9,
+        8,
+        7,
+        6,
+        6,
+        6,
+        5,
+        5,
+        5,
+        5,
+        5,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        3
+      ]
+    }
+  },
+  "operations": {
+    "total": 58,
+    "by_status": {
+      "INACTIVE": 58
+    },
+    "campaigns_per_operation": []
+  },
+  "transitions": {
+    "edges": 3,
+    "observations": 12
+  },
+  "temporal": {
+    "start": "2026-07-17T05:57:27.500000000+00:00",
+    "end": "2026-10-13T09:45:29.837000000+00:00",
+    "duration_hours": -92.19944444444444
+  },
+  "provenance": {
+    "source": "Neo4j AttackEvents and Campaigns",
+    "independent_ground_truth": false,
+    "reproducible": true,
+    "notes": "Campaign membership is observed CYUKTI output, not independent labels"
+  }
+}

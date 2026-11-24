@@ -1,0 +1,119 @@
+{
+  "phase": "22",
+  "title": "NBE Sensitivity & Ablation Study",
+  "run_date": "2026-09-14",
+  "status": "COMPLETED",
+  "supersedes": null,
+  "builds_on": "review/phase21_real_investigation_results.json",
+  "environment": {
+    "neo4j": "same live orphaned-container process established in Phase 21; not restarted this phase",
+    "python_env": "soc_env",
+    "scipy_version": "1.11.4",
+    "base_commit": "888c2e09d93d3388ce7ed265734d3c3ea56e7be4",
+    "files_added_this_phase": [
+      "scripts/phase22_nbe_sensitivity.py",
+      "backend/tests/test_phase22_nbe_sensitivity.py",
+      "review/phase22_nbe_sensitivity_raw.json"
+    ],
+    "production_files_modified_this_phase": []
+  },
+  "campaigns": ["CAMP_427A075C", "CAMP_1429ADB4", "CAMP_D8605E81"],
+  "reproduction_of_phase21": {
+    "final_confidence_CAMP_427A075C": 0.1835,
+    "final_confidence_CAMP_1429ADB4": 0.0687,
+    "final_confidence_CAMP_D8605E81": 0.0963,
+    "matches_phase21_exactly": true
+  },
+  "nbe_formula": {
+    "weights": {
+      "W_GAIN": 1.0, "W_RELIABILITY": 0.3, "W_NOVELTY": 0.5,
+      "W_UNCERTAINTY_REDUCTION": 0.6, "W_COST": 0.4, "W_LATENCY": 0.2, "W_REDUNDANCY": 0.5
+    },
+    "terms_that_are_static_actionmeta_constants": ["reliability", "cost", "latency"],
+    "terms_that_are_action_sequence_derived_not_content_derived": ["novelty", "redundancy_penalty"],
+    "terms_that_are_model_state_derived": ["uncertainty_reduction (XGBOOST_PREDICTION only)"],
+    "actions_with_any_content_sensitive_term": ["xgboost_prediction"],
+    "actions_with_zero_content_sensitive_terms": [
+      "mitre_knowledge", "mitre_semantic_search", "cti_lookup", "detection_check",
+      "attribution_match", "campaign_history", "graph_structure"
+    ]
+  },
+  "baseline_reproduction": {
+    "ablation_A_max_abs_error_vs_real_recorded_value": 0.0,
+    "note": "Ablation A's re-weighting exactly reproduces score_action()'s real, live-collected value across all 3 campaigns x 8 steps x all candidates."
+  },
+  "step1_full_policy_scores_by_campaign": {
+    "CAMP_427A075C": {"mitre_knowledge": 1.74, "xgboost_prediction": 1.73, "graph_structure": 1.62, "campaign_history": 1.49, "detection_check": 1.485, "mitre_semantic_search": 1.32, "cti_lookup": 1.135, "attribution_match": 1.125},
+    "CAMP_1429ADB4": {"mitre_knowledge": 1.74, "xgboost_prediction": 1.73, "graph_structure": 1.62, "campaign_history": 1.49, "detection_check": 1.485, "mitre_semantic_search": 1.32, "cti_lookup": 1.135, "attribution_match": 1.125},
+    "CAMP_D8605E81": {"mitre_knowledge": 1.74, "xgboost_prediction": 1.73, "graph_structure": 1.62, "campaign_history": 1.49, "detection_check": 1.485, "mitre_semantic_search": 1.32, "cti_lookup": 1.135, "attribution_match": 1.125}
+  },
+  "ablations": {
+    "A_full_current_policy": {"description": "all 7 terms, real weights"},
+    "B_no_uncertainty_reduction": {"description": "zero W_UNCERTAINTY_REDUCTION * uncertainty_reduction only"},
+    "C_no_model_probability": {"description": "identical operation to B - model probability has exactly one channel into the formula, via uncertainty_reduction", "numerically_identical_to": "B_no_uncertainty_reduction"},
+    "D_no_dependency": {"description": "zero W_REDUNDANCY * redundancy_penalty only"},
+    "E_static_base_only": {"description": "W_RELIABILITY*reliability - W_COST*cost - W_LATENCY*latency only"},
+    "F1_base_plus_gain_only": {"description": "E + W_GAIN*expected_gain (novelty in isolation)"},
+    "F2_base_plus_uncertainty_only": {"description": "E + W_UNCERTAINTY_REDUCTION*uncertainty_reduction (model state in isolation)"},
+    "F3_base_plus_redundancy_only": {"description": "E - W_REDUNDANCY*redundancy_penalty (dependency discount in isolation)"}
+  },
+  "ranking_metrics": {
+    "total_pairwise_comparisons": 192,
+    "comparison_composition": "8 steps x 8 ablations x 3 campaign-pairs (C(3,2)=3)",
+    "identical_rankings": 192,
+    "identical_raw_scores": 192,
+    "total_pairwise_rank_swaps": 0,
+    "kendall_tau_non_degenerate_n": 168,
+    "kendall_tau_min": 1.0,
+    "kendall_tau_max": 1.0,
+    "kendall_tau_undefined_count": 24,
+    "kendall_tau_undefined_reason": "step 8 has exactly 1 remaining candidate; tau undefined for n=1; occurs for all 8 ablations x 3 pairs = 24",
+    "top1_agreement": "192/192",
+    "top3_overlap_fraction_when_applicable": 1.0,
+    "score_variance_across_campaigns_per_action_per_step_per_ablation": 0.0
+  },
+  "xgboost_specific_test": {
+    "actions_with_nonzero_uncertainty_reduction_ever_observed": ["xgboost_prediction"],
+    "xgboost_value_at_step1_all_campaigns": 1.73,
+    "xgboost_value_at_step2_all_campaigns": 1.73,
+    "xgboost_uncertainty_reduction_at_both_appearances_all_campaigns": 1.0,
+    "root_cause_chain": [
+      "mitre_knowledge is always the highest-static-score action (1.74) on an empty store, so it is always taken at step 1 in every campaign",
+      "evidence/collectors/mitre_collector.py never sets Evidence.relevance -> stays at dataclass default 0.0",
+      "EvidenceStore.weighted_confidence() and evidence_coverage() both give zero weight to relevance=0.0 evidence (deliberate anti-saturation design)",
+      "=> evidence_reliability=0.0 and evidence_coverage=0.0 after step 1, in every campaign, unconditionally",
+      "=> investigation_confidence=0.0, uncertainty=1.0 when XGBOOST_PREDICTION is scored at step 2",
+      "=> uncertainty_reduction for xgboost is pinned to exactly 1.0 regardless of real campaign content"
+    ],
+    "h1_magnitude_dominance_hypothesis": "FALSIFIED - ablations F1/F2/F3 isolate each adaptive term individually and still show zero cross-campaign variance",
+    "h2_no_content_channel_hypothesis": "CONFIRMED - novelty and redundancy_penalty are functions of the action-type sequence only, not evidence content; the sequence is itself deterministic given the formula"
+  },
+  "classification": "effectively_static_ranking",
+  "classification_options_considered": [
+    "adaptive_ranking_demonstrated",
+    "adaptive_score_variation_but_ranking_invariance",
+    "effectively_static_ranking",
+    "insufficient_evidence"
+  ],
+  "classification_reasoning": "Not just ranking invariance with varying scores underneath - the raw scores themselves show literally zero cross-campaign variance in all 192 comparisons across 8 independent scoring configurations, including 3 that isolate individual nominally-adaptive terms.",
+  "test_suite": {
+    "full_suite_total": 172,
+    "full_suite_passing": 172,
+    "new_tests_this_phase": 8,
+    "new_tests_file": "backend/tests/test_phase22_nbe_sensitivity.py",
+    "new_tests_purpose": "validate the ablation-formula reproduction and the ranking/divergence-detection logic itself, not new production behavior",
+    "prior_suite_total_before_phase22": 164
+  },
+  "reproducibility": {
+    "experiment_command": "python3 scripts/phase22_nbe_sensitivity.py",
+    "working_directory": "isfcr/CYUKTI/backend (chdir'd by the script itself)",
+    "dataset": "live neo4j-soc campaigns CAMP_427A075C, CAMP_1429ADB4, CAMP_D8605E81",
+    "base_commit": "888c2e09d93d3388ce7ed265734d3c3ea56e7be4",
+    "note": "Working tree also carries uncommitted Phase 20+/21 investigation-module changes already present before this phase; exact re-run requires that same uncommitted state, not just the base commit."
+  },
+  "production_code_modified": false,
+  "bugs_found": [],
+  "forbidden_claims_made": [],
+  "conclusion": "The NBE ranking formula, as currently implemented, converts only action-sequence state (which action types have run) into ranking variation, not evidence content or investigation-specific model/uncertainty state, for 7 of its 8 candidate actions. The 8th (XGBoost) has exactly one content-sensitive channel, which is structurally pinned to a constant value at the only point it is ever evaluated, given the always-identical first action. This is a code-level, ablation-confirmed explanation for Phase 21's observed ranking invariance, not a contradiction of it.",
+  "recommended_phase_23_direction": "NOT IMPLEMENTED. If adaptive ranking is a goal, the NBE formula would need at least one term that reads Evidence.confidence/Evidence.relevance VALUES (not just source-touched booleans) into scoring - e.g., an information-gain term computed from the actual relevance/confidence distribution gathered so far, not merely whether a source category has been visited. Any such redesign should be scoped as its own phase, justified directly by this study's failure-mode finding, and validated against real data the same way this phase was - not assumed to fix the problem without re-testing."
+}
